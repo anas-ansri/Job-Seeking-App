@@ -99,11 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 error = result.toString();
                                 loading = false;
                               });
+                            } else {
+                              setState(() {
+                                error = result.toString();
+                                loading = false;
+                              });
                             }
-                            setState(() {
-                              error = result.toString();
-                              loading = false;
-                            });
                           } else {
                             const Text("Invalid Credentials");
                           }

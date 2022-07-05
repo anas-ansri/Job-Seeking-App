@@ -6,15 +6,17 @@ class RoundedButton extends StatefulWidget {
   final VoidCallback press;
   final Color color, textColor;
   final double fontSize;
+  double width;
 
-  const RoundedButton({
-    Key? key,
-    required this.text,
-    required this.press,
-    this.color = primartColor,
-    this.fontSize = 30,
-    this.textColor = Colors.white,
-  }) : super(key: key);
+  RoundedButton(
+      {Key? key,
+      required this.text,
+      required this.press,
+      this.color = primartColor,
+      this.fontSize = 30,
+      this.textColor = Colors.white,
+      this.width = 0})
+      : super(key: key);
 
   @override
   State<RoundedButton> createState() => _RoundedButtonState();
@@ -26,7 +28,7 @@ class _RoundedButtonState extends State<RoundedButton> {
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      width: size.width * 0.8,
+      width: widget.width == 0 ? size.width * 0.8 : widget.width,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: newElevatedButton(),

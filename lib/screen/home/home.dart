@@ -2,7 +2,6 @@ import 'package:ad_project/models/user.dart';
 import 'package:ad_project/screen/home/edit_page.dart';
 import 'package:ad_project/screen/home/info_page.dart';
 import 'package:ad_project/screen/others/loading_screen.dart';
-import 'package:ad_project/services/authentication.dart';
 import 'package:ad_project/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    AuthService _authService = AuthService();
     String uid = FirebaseAuth.instance.currentUser!.uid;
     // return LoginScreen();
     return StreamBuilder(
@@ -28,7 +26,7 @@ class _HomeState extends State<Home> {
         builder: (BuildContext context, AsyncSnapshot<UserData> snapshot) {
           if (snapshot.hasData) {
             userData = snapshot.data;
-            if (userData!.job_prefs.isEmpty) {
+            if (userData!.job_prefs.length < 2) {
               return EditPage();
             } else {
               return InfoPage(

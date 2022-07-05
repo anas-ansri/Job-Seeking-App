@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
 
-//Primary Color: #990011FF
-//Secondry Color: #FCF6F5FF
 //Primary Font : Source Sans Pro
 
 const primartColor = Colors.red;
 const secondryColor = Colors.white;
-
-Widget appTitle = const Text(
-  "NEWSWARE",
-  style: TextStyle(
-      // fontStyle: FontStyle.italic,
-      fontFamily: "AbrilFatface",
-      // fontStyle: FontStyle.italic,
-      // fontWeight: FontWeight.bold,
-      color: Colors.white), ////HexColor("#fc6424")
-);
 
 getHeightValue(BuildContext context) {
   double unitHeightValue = MediaQuery.of(context).size.height * 0.01;
@@ -27,61 +15,43 @@ getWidthValue(BuildContext context) {
   return unitWidthtValue;
 }
 
-const List<String> allCountries = [
-  "ae",
-  "ar",
-  "at",
-  "au",
-  "be",
-  "bg",
-  "br",
-  "ca",
-  "ch",
-  "cn",
-  "co",
-  "cu",
-  "cz",
-  "de",
-  "eg",
-  "fr",
-  "gb",
-  "gr",
-  "hk",
-  "hu",
-  "id",
-  "ie",
-  "il",
-  "in",
-  "it",
-  "jp",
-  "kr",
-  "lt",
-  "lv",
-  "ma",
-  "mx",
-  "my",
-  "ng",
-  "nl",
-  "no",
-  "nz",
-  "ph",
-  "pl",
-  "pt",
-  "ro",
-  "rs",
-  "ru",
-  "sa",
-  "se",
-  "sg",
-  "si",
-  "sk",
-  "th",
-  "tr",
-  "tw",
-  "ua",
-  "us",
-  "ve",
-  "za"
+const List<String> allJobFunction = [
+  "None",
+  "Administration / Office",
+  "Arts and Culture",
+  "Board Member",
+  "Business / Corporate Services",
+  "Client / Customer Services",
+  "Communications",
+  "Construction, Works, Engineering",
+  "Education, Curriculum and Teaching",
+  "Environment, Conservation and NRM",
+  "Facility / Grounds Management and Maintenance",
+  "Finance Management",
+  "Health - Medical and Nursing Management",
+  "HR, Training and Organisational Development",
+  "Information and Communications Technology",
+  "Information Services, Statistics, Records, Archives",
+  "Infrastructure Management - Transport, Utilities",
+  "Legal Officers and Practitioners",
+  "Librarians and Library Management",
+  "Management",
+  "Marketing",
+  "OH&S, Risk Management",
+  "Operations Management",
+  "Planning, Policy, Strategy",
+  "Printing, Design, Publishing, Web",
+  "Projects, Programs and Advisors",
+  "Property, Assets and Fleet Management",
+  "Public Relations and Media",
+  "Purchasing and Procurement",
+  "Quality Management",
+  "Science and Technical Research and Development",
+  "Security and Law Enforcement",
+  "Service Delivery",
+  "Sport and Recreation",
+  "Travel, Accommodation, Tourism",
+  "Wellbeing, Community / Social Services"
 ];
 
 showErrorAlert(BuildContext context, String error) {
