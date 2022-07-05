@@ -25,15 +25,12 @@ class _EditPageState extends State<EditPage> {
   String? selectedItem = "None";
   String _newEmail = "";
   final listKey = GlobalKey<AnimatedListState>();
-  // final List<String> jobList = widget.userData!.job_prefs;
-  // List<String> jobList = List.from(widget.userData!.job_prefs);
 
   @override
   Widget build(BuildContext context) {
-    UserData userData = widget.userData as UserData;
     String uid = FirebaseAuth.instance.currentUser!.uid;
     DatabaseService db = DatabaseService(uid: uid);
-    List<String> jobList = userData.job_prefs;
+    List<String> jobList = widget.userData!.job_prefs;
 
     return Scaffold(
         appBar: AppBar(
@@ -51,8 +48,9 @@ class _EditPageState extends State<EditPage> {
               height: 60,
             ),
             EditProfileWidget(
-              imagePath:
-                  (_newPhotoUrl == "" ? userData.photoUrl : _newPhotoUrl),
+              imagePath: (_newPhotoUrl == ""
+                  ? widget.userData!.photoUrl
+                  : _newPhotoUrl),
               isEdit: true,
               onClicked: () async {
                 String downloadURL;

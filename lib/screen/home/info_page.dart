@@ -85,10 +85,11 @@ class _InfoPageState extends State<InfoPage> {
                 ),
                 const SizedBox(height: 24),
                 buildName(widget.userData!),
-                const SizedBox(height: 24),
+                const SizedBox(height: 30),
                 Divider(
                   color: Colors.grey,
                 ),
+                const SizedBox(height: 10),
                 Text(
                   "Job Preferences",
                   textAlign: TextAlign.center,
@@ -97,18 +98,24 @@ class _InfoPageState extends State<InfoPage> {
                       fontWeight: FontWeight.bold,
                       fontSize: 24),
                 ),
-                AnimatedList(
-                  shrinkWrap: true,
-                  initialItemCount: jobList.length,
-                  itemBuilder: (BuildContext context, int index,
-                      Animation<double> animation) {
-                    return ListItemWidget(
-                      editable: false,
-                      text: jobList[index],
-                      animation: animation,
-                    );
-                  },
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  child: AnimatedList(
+                    shrinkWrap: true,
+                    initialItemCount: jobList.length,
+                    itemBuilder: (BuildContext context, int index,
+                        Animation<double> animation) {
+                      return ListItemWidget(
+                        editable: false,
+                        text: jobList[index],
+                        animation: animation,
+                      );
+                    },
+                  ),
                 ),
+                SizedBox(
+                  height: 30,
+                )
               ],
             ));
   }
@@ -127,61 +134,4 @@ class _InfoPageState extends State<InfoPage> {
           )
         ],
       );
-
-  // buildCard(List<String> job_prefs) {
-  //   return Card(
-  //     color: Colors.red,
-  //     shadowColor: Colors.black54,
-  //     margin: const EdgeInsets.all(10),
-  //     shape: OutlineInputBorder(
-  //         borderRadius: BorderRadius.circular(15),
-  //         borderSide: const BorderSide(color: Colors.black38, width: 0)),
-  //     child: Column(
-  //       children: [
-  //         // SizedBox(
-  //         //   height: 20,
-  //         // ),
-  //         // Text(
-  //         //   "Job Preferences",
-  //         //   style: const TextStyle(
-  //         //       color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
-  //         // ),
-  //         SizedBox(
-  //           height: 20,
-  //         ),
-  //         ListView.builder(
-  //           shrinkWrap: true,
-  //           physics: const BouncingScrollPhysics(),
-  //           itemCount: job_prefs.length,
-  //           itemBuilder: (context, index) {
-  //             return listItem(job_prefs[index]);
-  //           },
-  //         ),
-  //         SizedBox(
-  //           height: 20,
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-  // Widget listItem(String text) {
-  //   return Container(
-  //     padding: EdgeInsets.symmetric(horizontal: 20),
-  //     margin: const EdgeInsets.symmetric(vertical: 4),
-  //     child: ElevatedButton(
-  //       child: Text(
-  //         text,
-  //         style: TextStyle(color: Colors.black, fontSize: 20),
-  //       ),
-  //       onPressed: () {},
-  //       style: ElevatedButton.styleFrom(
-  //           primary: Colors.white,
-  //           textStyle: TextStyle(
-  //               color: Colors.white,
-  //               fontSize: 14,
-  //               fontWeight: FontWeight.w500)),
-  //     ),
-  //   );
-  // }
 }

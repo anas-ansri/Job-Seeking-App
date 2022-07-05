@@ -1,6 +1,7 @@
 import 'package:ad_project/models/user.dart';
 import 'package:ad_project/screen/home/edit_page.dart';
 import 'package:ad_project/screen/home/info_page.dart';
+import 'package:ad_project/screen/others/job_selection_page.dart';
 import 'package:ad_project/screen/others/loading_screen.dart';
 import 'package:ad_project/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,7 +28,7 @@ class _HomeState extends State<Home> {
           if (snapshot.hasData) {
             userData = snapshot.data;
             if (userData!.job_prefs.length < 2) {
-              return EditPage();
+              return JobSelectionPage();
             } else {
               return InfoPage(
                 userData: userData,
