@@ -6,7 +6,6 @@ import 'package:ad_project/services/authentication.dart';
 import 'package:ad_project/utils/constants.dart';
 import 'package:ad_project/utils/helper/list_item.dart';
 import 'package:ad_project/utils/helper/profile_widget.dart';
-import 'package:ad_project/utils/helper/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class InfoPage extends StatefulWidget {
@@ -24,6 +23,7 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     List<String> jobList = widget.userData!.job_prefs;
+
     return loading
         ? LoadingScreen()
         : Scaffold(
@@ -102,6 +102,7 @@ class _InfoPageState extends State<InfoPage> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: AnimatedList(
                     shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
                     initialItemCount: jobList.length,
                     itemBuilder: (BuildContext context, int index,
                         Animation<double> animation) {
