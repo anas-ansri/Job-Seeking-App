@@ -102,15 +102,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               setState(() {
                                 loading = true;
                               });
-
                               dynamic result = await _auth.registerWithEmail(
                                   email, password, name);
                               if (result == null) {
                                 setState(() {
-                                  error = "Please enter valid credentials";
                                   loading = false;
                                 });
+                              } else {
+                                setState(() {
+                                  loading = false;
+                                  showErrorAlert(context, result);
+                                });
                               }
+                              Navigator.of(context).pop();
                             } else {
                               const Text("Please Enter valid credentials");
                             }

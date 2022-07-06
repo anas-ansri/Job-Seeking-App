@@ -13,6 +13,7 @@ class AuthService {
         email: email,
         password: password,
       );
+
       final User? user = result.user;
 
       await DatabaseService(uid: user!.uid).userSetup(
@@ -21,11 +22,11 @@ class AuthService {
           "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
           [""]);
 
-      return result;
+      return null;
     } on Exception catch (e) {
       // TODO
       print(e.toString());
-      return null;
+      return e.toString();
     }
   }
 
@@ -34,7 +35,6 @@ class AuthService {
     try {
       // print(email);
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-
       return null;
     } catch (e) {
       // print(e.toString());

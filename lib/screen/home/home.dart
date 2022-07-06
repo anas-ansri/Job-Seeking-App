@@ -2,6 +2,7 @@ import 'package:ad_project/models/user.dart';
 import 'package:ad_project/screen/home/info_page.dart';
 import 'package:ad_project/screen/others/job_selection_page.dart';
 import 'package:ad_project/screen/others/loading_screen.dart';
+import 'package:ad_project/screen/others/splash_screen.dart';
 import 'package:ad_project/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

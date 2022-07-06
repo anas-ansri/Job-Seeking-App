@@ -23,7 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           child: ListView(
             children: [
               SizedBox(
-                height: 30.0 * getHeightValue(context),
+                height: 60,
               ),
               SizedBox(
                 height: 120.0,
@@ -42,16 +42,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
                     // fontWeight: FontWeight.bold,
                     color: Colors.white), ////HexColor("#fc6424")
               ),
-              const Padding(padding: EdgeInsets.only(top: 80.0)),
-              Flexible(
-                child: LoadingAnimationWidget.flickr(
-                  leftDotColor: Colors.green,
-                  rightDotColor: Colors.red,
-                  size: 60,
-                ),
+              const Padding(padding: EdgeInsets.only(top: 150.0)),
+              LoadingAnimationWidget.flickr(
+                leftDotColor: Colors.green,
+                rightDotColor: Colors.red,
+                size: 60,
               ),
               SizedBox(
-                height: 5.0 * getHeightValue(context),
+                height: 20,
               ),
               Text(
                 "Created by Anas Ansari",
@@ -60,7 +58,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               SizedBox(
-                height: 5.0 * getHeightValue(context),
+                height: 20,
               ),
             ],
             // ),
