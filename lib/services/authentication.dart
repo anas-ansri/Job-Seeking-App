@@ -15,17 +15,15 @@ class AuthService {
       );
 
       final User? user = result.user;
-
       await DatabaseService(uid: user!.uid).userSetup(
           displayName,
           user.email,
           "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
           [""]);
-
       return null;
     } on Exception catch (e) {
       // TODO
-      print(e.toString());
+      print("Hello    " + e.toString());
       return e.toString();
     }
   }

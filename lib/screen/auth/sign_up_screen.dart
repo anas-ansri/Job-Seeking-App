@@ -96,33 +96,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         fontSize: getWidthValue(context) * 2.5,
                         text: "SIGNUP",
                         press: () async {
-                          loading = true;
-                          try {
-                            if (_formKey.currentState!.validate()) {
+                          if (_formKey.currentState!.validate()) {
+                            setState(() {
+                              loading = true;
+                            });
+                            dynamic result = await _auth.registerWithEmail(
+                                email, password, name);
+                            if (result != null) {
                               setState(() {
-                                loading = true;
+                                error = result.toString();
+                                loading = false;
                               });
-                              dynamic result = await _auth.registerWithEmail(
-                                  email, password, name);
-                              if (result == null) {
-                                setState(() {
-                                  loading = false;
-                                });
-                              } else {
-                                setState(() {
-                                  loading = false;
-                                  showErrorAlert(context, result);
-                                });
-                              }
-                              Navigator.of(context).pop();
                             } else {
-                              const Text("Please Enter valid credentials");
+                              setState(() {
+                                loading = false;
+                                Navigator.of(context).pop();
+                              });
                             }
-                          } catch (e) {
-                            print(e.toString());
-                            error = e.toString();
-                            // TODO
-                            showErrorAlert(context, e.toString());
+                          } else {
+                            const Text("Invalid Credentials");
                           }
                         },
                       ),
