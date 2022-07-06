@@ -27,9 +27,6 @@ class _HomeState extends State<Home> {
           if (snapshot.hasData) {
             userData = snapshot.data;
             if (userData!.job_prefs.length < 2) {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const JobSelectionPage(),
-              ));
               return JobSelectionPage();
             } else {
               return InfoPage(

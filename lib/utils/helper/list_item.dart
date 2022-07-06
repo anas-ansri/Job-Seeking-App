@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ListItemWidget extends StatefulWidget {
   final String text;
-  final Animation<double> animation;
+  Animation<double> animation;
   VoidCallback? onClicked;
   bool editable;
   ListItemWidget(

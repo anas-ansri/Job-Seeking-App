@@ -1,4 +1,5 @@
 import 'package:ad_project/models/user.dart';
+import 'package:ad_project/screen/home/info_page.dart';
 import 'package:ad_project/services/database.dart';
 import 'package:ad_project/utils/constants.dart';
 import 'package:ad_project/utils/helper/list_item.dart';
@@ -67,34 +68,30 @@ class _JobSelectionPageState extends State<JobSelectionPage> {
           const SizedBox(height: 24),
           Column(
             children: [
-              // FittedBox(
-              // fit: BoxFit.fill,
-              // child:
-              // SizedBox(
-              //   width: 50,
-              //   child:
-              DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(width: 2, color: Colors.red))),
-                value: selectedItem,
-                items: allJobFunction
-                    .map((item) => DropdownMenuItem<String>(
-                        value: item,
-                        child: Text(
-                          item,
-                          // style: TextStyle(fontSize: 10),
-                        )))
-                    .toList(),
-                onChanged: (val) {
-                  setState(() {
-                    selectedItem = val;
-                  });
-                },
+              FittedBox(
+                fit: BoxFit.fill,
+                child:
+                    // SizedBox(
+                    //   width: 50,
+                    //   child:
+                    DropdownButton<String>(
+                  value: selectedItem,
+                  items: allJobFunction
+                      .map((item) => DropdownMenuItem<String>(
+                          value: item,
+                          child: Text(
+                            item,
+                            // style: TextStyle(fontSize: 10),
+                          )))
+                      .toList(),
+                  onChanged: (val) {
+                    setState(() {
+                      selectedItem = val;
+                    });
+                  },
+                ),
+                // ),
               ),
-              // ),
-              // ),
               SizedBox(
                 width: 5,
               ),
@@ -122,8 +119,8 @@ class _JobSelectionPageState extends State<JobSelectionPage> {
                       context, "Please select between 2 to 5 job functions");
                 } else {
                   await db.updateJobPref(jobList);
-                  showAlertDialog(context, "Thank you",
-                      "Your details are updated successfully.", true);
+                  // showAlertDialog(context, "Thank you",
+                  //     "Your details are updated successfully.", false);
                 }
               })
         ],

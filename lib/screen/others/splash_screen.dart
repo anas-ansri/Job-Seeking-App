@@ -12,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   _SplashScreenState() {
-    Timer(const Duration(seconds: 4), () {
+    Timer(const Duration(seconds: 3), () {
       setState(() {
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) {

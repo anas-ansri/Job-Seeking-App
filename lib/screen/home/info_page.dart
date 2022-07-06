@@ -100,16 +100,25 @@ class _InfoPageState extends State<InfoPage> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: AnimatedList(
+                  child: ListView.builder(
+                    itemCount: jobList.length,
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
-                    initialItemCount: jobList.length,
-                    itemBuilder: (BuildContext context, int index,
-                        Animation<double> animation) {
-                      return ListItemWidget(
-                        editable: false,
-                        text: jobList[index],
-                        animation: animation,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin:
+                            EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.grey[300]),
+                        child: ListTile(
+                          contentPadding:
+                              EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          title: Text(
+                            jobList[index],
+                            style: TextStyle(fontSize: 20, color: Colors.black),
+                          ),
+                        ),
                       );
                     },
                   ),
