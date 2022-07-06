@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//All constant variable and widget used throughout in this project.
+
 //Primary Font : Source Sans Pro
 
 const primartColor = Colors.red;

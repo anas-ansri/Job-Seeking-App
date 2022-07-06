@@ -1,20 +1,10 @@
 import 'package:ad_project/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// import 'package:news_ware/models/user.dart';
-// import 'package:news_ware/services/database.dart';
-
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  //auth change user steam
-  // Continue from here
-  // Stream<MyUser?> get user {
-  //   return _auth
-  //       .authStateChanges()
-  //       .map((User? user) => _userFromFirebaseUser(user!));
-  // }
-
+  //Method for register woth eamil
   Future registerWithEmail(
       String email, String password, String displayName) async {
     // try {
@@ -37,12 +27,9 @@ class AuthService {
       print(e.toString());
       return null;
     }
-    // } catch (e) {
-    //   print(e.toString());
-    // }
   }
 
-//sign in with email
+//Method for sign in with email
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
       // print(email);

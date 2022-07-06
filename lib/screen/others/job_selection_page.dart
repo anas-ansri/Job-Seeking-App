@@ -46,6 +46,7 @@ class _JobSelectionPageState extends State<JobSelectionPage> {
             key: listKey,
             shrinkWrap: true,
             initialItemCount: jobList.length,
+            physics: NeverScrollableScrollPhysics(),
             itemBuilder:
                 (BuildContext context, int index, Animation<double> animation) {
               return ListItemWidget(
@@ -66,25 +67,34 @@ class _JobSelectionPageState extends State<JobSelectionPage> {
           const SizedBox(height: 24),
           Column(
             children: [
-              FittedBox(
-                fit: BoxFit.fitHeight,
-                child: DropdownButton<String>(
-                  value: selectedItem,
-                  items: allJobFunction
-                      .map((item) => DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                            // style: TextStyle(fontSize: 10),
-                          )))
-                      .toList(),
-                  onChanged: (val) {
-                    setState(() {
-                      selectedItem = val;
-                    });
-                  },
-                ),
+              // FittedBox(
+              // fit: BoxFit.fill,
+              // child:
+              // SizedBox(
+              //   width: 50,
+              //   child:
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(width: 2, color: Colors.red))),
+                value: selectedItem,
+                items: allJobFunction
+                    .map((item) => DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(
+                          item,
+                          // style: TextStyle(fontSize: 10),
+                        )))
+                    .toList(),
+                onChanged: (val) {
+                  setState(() {
+                    selectedItem = val;
+                  });
+                },
               ),
+              // ),
+              // ),
               SizedBox(
                 width: 5,
               ),
@@ -114,7 +124,6 @@ class _JobSelectionPageState extends State<JobSelectionPage> {
                   await db.updateJobPref(jobList);
                   showAlertDialog(context, "Thank you",
                       "Your details are updated successfully.", true);
-                  Navigator.of(context, rootNavigator: true).pop();
                 }
               })
         ],

@@ -28,7 +28,7 @@ class _RoundedButtonState extends State<RoundedButton> {
     Size size = MediaQuery.of(context).size;
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
-      width: widget.width == 0 ? size.width * 0.8 : widget.width,
+      width: 50,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(29),
         child: newElevatedButton(),
@@ -46,7 +46,7 @@ class _RoundedButtonState extends State<RoundedButton> {
       onPressed: widget.press,
       style: ElevatedButton.styleFrom(
           primary: widget.color,
-          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           textStyle: TextStyle(
               color: widget.textColor,
               fontSize: 14,

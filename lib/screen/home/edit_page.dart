@@ -108,6 +108,7 @@ class _EditPageState extends State<EditPage> {
             AnimatedList(
               key: listKey,
               shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               initialItemCount: jobList.length,
               itemBuilder: (BuildContext context, int index,
                   Animation<double> animation) {

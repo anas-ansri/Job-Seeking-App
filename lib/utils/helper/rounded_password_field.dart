@@ -50,15 +50,6 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
                   : Icons.visibility_off,
             ),
           ),
-          // suffixIcon: IconButton(
-          //   icon: const Icon(
-          //     Icons.visibility,
-          //     color: kPrimaryColor,
-          //   ),
-          //   onPressed: () {
-          //     hide = !hide;
-          //   },
-          // ),
           border: InputBorder.none,
         ),
       ),

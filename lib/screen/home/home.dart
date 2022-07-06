@@ -1,5 +1,4 @@
 import 'package:ad_project/models/user.dart';
-import 'package:ad_project/screen/home/edit_page.dart';
 import 'package:ad_project/screen/home/info_page.dart';
 import 'package:ad_project/screen/others/job_selection_page.dart';
 import 'package:ad_project/screen/others/loading_screen.dart';
@@ -21,13 +20,16 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     String uid = FirebaseAuth.instance.currentUser!.uid;
-    // return LoginScreen();
+
     return StreamBuilder(
         stream: DatabaseService(uid: uid).userDetail,
         builder: (BuildContext context, AsyncSnapshot<UserData> snapshot) {
           if (snapshot.hasData) {
             userData = snapshot.data;
             if (userData!.job_prefs.length < 2) {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const JobSelectionPage(),
+              ));
               return JobSelectionPage();
             } else {
               return InfoPage(

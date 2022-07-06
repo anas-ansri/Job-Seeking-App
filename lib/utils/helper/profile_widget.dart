@@ -19,11 +19,6 @@ class ProfileWidget extends StatelessWidget {
       child: Stack(
         children: [
           buildImage(),
-          // Positioned(
-          //   bottom: 0,
-          //   right: 4,
-          //   child: buildEditIcon(color),
-          // ),
         ],
       ),
     );
@@ -43,13 +38,6 @@ class ProfileWidget extends StatelessWidget {
             height: 128,
           ),
         ),
-        // child: Ink.image(
-        //   image: image,
-        //   fit: BoxFit.cover,
-        //   width: 128,
-        //   height: 128,
-        //   child: InkWell(onTap: onClicked),
-        // ),
       ),
     );
   }
@@ -112,13 +100,6 @@ class EditProfileWidget extends StatelessWidget {
             height: 128,
           ),
         ),
-        // child: Ink.image(
-        //   image: image,
-        //   fit: BoxFit.cover,
-        //   width: 128,
-        //   height: 128,
-        //   child: InkWell(onTap: onClicked),
-        // ),
       ),
     );
   }
